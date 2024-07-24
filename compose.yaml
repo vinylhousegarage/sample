@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpass
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    build: .
+    depends_on:
+      - db
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpass
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/myapp
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 4000 -b '0.0.0.0'"
+    stdin_open: true
+    tty: true
