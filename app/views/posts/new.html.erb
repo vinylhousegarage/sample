@@ -1,0 +1,33 @@
+<%= form_with model: @posts do |form| %>
+  <div>
+    <%= form.label :ご芳名 %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :※連名 %><br>
+    <%= form.text_field :joint_name %>
+  </div>
+  <div>
+    <%= form.label :香典金額 %><br>
+    <%= form.text_field :amount %>
+  </div>
+  <div>
+    <%= form.label :ご住所 %><br>
+    <%= form.text_area :address %>
+  </div>
+  <div>
+    <%= form.label :電話番号 %><br>
+    <%= form.text_field :tel %>
+  </div>
+  <div>
+    <%= form.label :携帯番号 %><br>
+    <%= form.text_field :mobile %>
+  </div>
+  <div>
+    <%= form.label :供花・供物・その他 %><br>
+    <%= form.text_area :others %>
+  </div>
+  <div>
+    <%= form.submit "登録する" %>
+  </div>
+<% end %>
