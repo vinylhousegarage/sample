@@ -1,2 +1,10 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% 
+  posts = [
+    "3000",
+    "5000"
+  ]
+%>
+
+<% posts.each do |post| %>
+  <% = post %>
+<% end %>
